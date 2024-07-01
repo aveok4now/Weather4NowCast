@@ -1,0 +1,35 @@
+---
+import {DEFAULT_CITY} from "../config"
+
+interface Props {
+	video?: string;
+	className?: string;
+	city?: string;
+	temperature: string;
+}
+
+const { video = "/video/sunny_weather.mp4", className, city=DEFAULT_CITY, temperature } = Astro.props;
+
+---
+
+<main class="pt-11 min-w-screen">
+	<section class="relative mb-6 h-80 flex justify-center items-center">
+		<div class="absolute w-full h-full overflow-hidden">
+			<video
+				class=`absolute h-auto left-1/2 top-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 opacity-50 dark:opacity-30 ${className}`
+				autoplay="autoplay"
+				muted="muted"
+				loop="loop"
+				playsinline><source src={video} type="video/mp4" /></video
+			>
+		</div>
+		<div
+			class="z-10 text-center px-8 drop-shadow-lg shadow-black backdrop-blur-xs"
+		>
+			<div class="uppercase text-sm ">{city}</div>
+			<div class="text-4xl font-medium">
+				<span class="font-bold dark:text-blue-300">{temperature} C</span> 
+			</div>
+		</div>
+	</section>
+</main>
