@@ -5,7 +5,7 @@ interface Props {
 	video?: string;
 	className?: string;
 	city?: string;
-	temperature: string;
+	temperature: number;
 }
 
 const {
@@ -30,9 +30,13 @@ const {
 		<div
 			class="z-10 text-center px-8 drop-shadow-lg shadow-black backdrop-blur-xs"
 		>
-			<div class="uppercase text-4xl text-center font-extrabold">{city}</div>
+			<div id="city" class="uppercase text-4xl text-center font-extrabold">
+				{city}
+			</div>
 			<div class="text-2xl font-medium">
-				<span class="font-bold dark:text-blue-300">{temperature} °C</span>
+				<span id="temperature" class="font-bold dark:text-blue-300"
+					>{temperature} °C</span
+				>
 			</div>
 		</div>
 	</section>

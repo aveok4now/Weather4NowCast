@@ -29,35 +29,30 @@ apiClient.interceptors.response.use(
 type HttpMethod = "get" | "post" | "put" | "delete" | "patch";
 
 export const makeRequest = async <T = any>(
-	method: HttpMethod,
-	url: string,
-	data: any = {},
-	headers: Record<string, string> = {},
-	responseType?: AxiosRequestConfig["responseType"]
+    method: HttpMethod,
+    url: string,
+    params: Record<string, any> = {}, 
+    headers: Record<string, string> = {},
+    responseType?: AxiosRequestConfig["responseType"]
 ): Promise<T> => {
-	try {
-		const config: AxiosRequestConfig<any> = {
-			method,
-			url,
-			data,
-			headers,
-			responseType,
-		};
+    try {
+        const config: AxiosRequestConfig<any> = {
+            method,
+            url,
+            params,
+            headers,
+            responseType,
+        };
 
-		const response: AxiosResponse<T> = await apiClient(config);
-		return response.data;
-	} catch (error) {
-		if (axios.isAxiosError(error)) {
-			console.warn(error);
-			throw new Error(
-				error.response ? error.response.data.message : error.message
-			);
-		}
-		throw error;
-	}
-};
-
-// TODO
-export const getForecastByCityName = async (cityName?: string) => {
-	return await makeRequest("get", `${WEATHER_API_LINK}?q=${cityName}`);
+        const response: AxiosResponse<T> = await apiClient(config);
+        return response.data;
+    } catch (error) {
+        if (axios.isAxiosError(error)) {
+            console.warn(error);
+            throw new Error(
+                error.response ? error.response.data.message : error.message
+            );
+        }
+        throw error;
+    }
 };

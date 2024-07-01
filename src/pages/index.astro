@@ -1,12 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { SITE_TITLE } from '../config';
-import Content from "../components/Content.astro"
-import Masthead from "../components/Masthead.astro"
+import Layout from "../layouts/Layout.astro";
+import { DEFAULT_CITY, SITE_TITLE } from "../config";
+import Content from "../components/Content.astro";
+import Masthead from "../components/Masthead.astro";
+import { getForecastByCityName } from "../services/weatherService";
+
+const weather = await getForecastByCityName(DEFAULT_CITY);
+const temperature = weather.main.temp;
+const city = weather.name ?? DEFAULT_CITY;
 ---
 
 <Layout title={SITE_TITLE}>
-	<Masthead temperature={'+30'}/>
+	<Masthead city={city} temperature={temperature} />
 	<Content />
 </Layout>
-
