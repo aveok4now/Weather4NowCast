@@ -1,15 +1,16 @@
 ---
 import { SITE_TITLE } from "../config";
-import { ThemeToggle } from "./ThemeToggle"
+import { ThemeToggle } from "./ThemeToggle";
 ---
 
-<header 
-	class="bg-transparent backdrop-blur-3xl fixed w-full z-20 p-3"
->
+<header class="bg-transparent backdrop-blur-3xl fixed w-full z-20 p-3">
 	<div class="mx-auto max-w-3xl">
 		<nav class="flex items-center gap-4">
-			<span class="dark:text-blue-300 tracking-tight font-black uppercase">
-				{SITE_TITLE}</span
+			<a
+				href="/"
+				class="dark:text-blue-300 tracking-tight font-black uppercase cursor-pointer"
+			>
+				{SITE_TITLE}</a
 			>
 			<div class="flex-1"></div>
 			<ThemeToggle client:visible />
