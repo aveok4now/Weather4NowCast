@@ -1,9 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE_TITLE } from '../config';
+import Content from "../components/Content.astro"
+import Masthead from "../components/Masthead.astro"
 ---
 
 <Layout title={SITE_TITLE}>
-	
+	<Masthead temperature={'+30'}/>
+	<Content />
 </Layout>
 

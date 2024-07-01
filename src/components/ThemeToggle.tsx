@@ -21,7 +21,7 @@ export function ThemeToggle() {
 	}, [theme]);
 
 	return (
-		<div className="inline-flex items-center rounded-md bg-purple-300 dark:bg-black">
+		<div className="inline-flex items-center rounded-md bg-blue-300 dark:bg-black">
 			{themes.map((t) => {
 				const checked = t === theme;
 				return (
@@ -29,7 +29,7 @@ export function ThemeToggle() {
 						key={t}
 						className={`${
 							checked
-								? "bg-white text-purple-700 ring-1 ring-inset ring-black dark:ring-purple-300"
+								? "bg-white text-blue-300 ring-1 ring-inset ring-black dark:ring-blue-300"
 								: ""
 						} cursor-pointer rounded-md p-1 `}
 						onClick={() => setThemeState(t)}
