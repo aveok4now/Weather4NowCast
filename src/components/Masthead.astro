@@ -1,6 +1,5 @@
 ---
 import { DEFAULT_CITY } from "../config";
-import TypeWriter from "./TypeWriter";
 
 interface Props {
 	video?: string;
@@ -18,7 +17,7 @@ const {
 ---
 
 <main class="pt-14 min-w-screen">
-	<section class="relative mb-6 h-80 flex justify-center items-center">
+	<section class="relative h-80 flex justify-center items-center">
 		<div class="absolute w-full h-full overflow-hidden">
 			<video
 				class=`absolute h-auto left-1/2 top-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 opacity-50 dark:opacity-30 ${className}`
@@ -33,7 +32,7 @@ const {
 		>
 			<div
 				id="city"
-				class="uppercase text-4xl text-center font-extrabold animate-slidein"
+				class="uppercase text-4xl text-center font-extrabold animate-slidein text-white"
 			>
 				{city}
 			</div>
@@ -41,7 +40,7 @@ const {
 			<div class="text-2xl font-medium">
 				<span
 					id="temperature"
-					class="font-bold dark:text-blue-300 animate-slidein"
+					class="font-light text-white dark:text-blue-300 animate-slidein text-3xl"
 				>
 					{temperature} °C
 				</span>
