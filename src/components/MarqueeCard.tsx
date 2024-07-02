@@ -26,6 +26,7 @@ export const MarqueeCard = ({
 				colorTo="#73B3FC"
 				duration={10}
 			/>
+
 			<div className="flex flex-row items-center gap-2">
 				<img className="rounded-full" width="32" height="32" alt="" src={img} />
 				<div className="flex flex-col">
@@ -35,6 +36,7 @@ export const MarqueeCard = ({
 					<p className="text-xs font-medium dark:text-white/40">{coords}</p>
 				</div>
 			</div>
+
 			<blockquote className="mt-2 text-sm">{body}</blockquote>
 		</figure>
 	);
