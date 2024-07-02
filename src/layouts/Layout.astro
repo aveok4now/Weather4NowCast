@@ -1,9 +1,9 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Body from "../components/Body.astro"
-import Footer from '../components/Footer.astro';
-import {SITE_DESCRIPTION} from "../config";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Body from "../components/Body.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_DESCRIPTION } from "../config";
 
 interface Props {
 	title: string;
@@ -15,11 +15,13 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={SITE_DESCRIPTION}/>
+		<BaseHead title={title} description={SITE_DESCRIPTION} />
 	</head>
-	<Header />
-	<Body>
-		<slot />
-	</Body>
-	<Footer />
+	<body>
+		<Header />
+		<Body>
+			<slot />
+		</Body>
+		<Footer />
+	</body>
 </html>

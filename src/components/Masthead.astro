@@ -1,19 +1,24 @@
 ---
-import {DEFAULT_CITY} from "../config"
+import { DEFAULT_CITY } from "../config";
 
 interface Props {
 	video?: string;
 	className?: string;
 	city?: string;
-	temperature: string;
+	temperature: number;
 }
 
-const { video = "/video/sunny_weather.mp4", className, city=DEFAULT_CITY, temperature } = Astro.props;
-
+const {
+	video = "/video/sunny_weather.mp4",
+	className,
+	city = DEFAULT_CITY,
+	temperature,
+} = Astro.props;
 ---
 
-<main class="pt-11 min-w-screen">
-	<section class="relative mb-6 h-80 flex justify-center items-center">
+<main class="min-w-screen">
+	<section class="relative h-80 flex justify-center items-center">
+		
 		<div class="absolute w-full h-full overflow-hidden">
 			<video
 				class=`absolute h-auto left-1/2 top-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 opacity-50 dark:opacity-30 ${className}`
@@ -26,9 +31,20 @@ const { video = "/video/sunny_weather.mp4", className, city=DEFAULT_CITY, temper
 		<div
 			class="z-10 text-center px-8 drop-shadow-lg shadow-black backdrop-blur-xs"
 		>
-			<div class="uppercase text-sm text-center">{city}</div>
-			<div class="text-4xl font-medium">
-				<span class="font-bold dark:text-blue-300">{temperature} °C</span> 
+			<div
+				id="city"
+				class="uppercase text-4xl text-center font-extrabold animate-slidein text-white"
+			>
+				{city}
+			</div>
+
+			<div class="text-2xl font-medium">
+				<span
+					id="temperature"
+					class="font-light text-white dark:text-blue-300 animate-slidein text-3xl"
+				>
+					{temperature} °C
+				</span>
 			</div>
 		</div>
 	</section>

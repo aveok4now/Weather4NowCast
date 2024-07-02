@@ -29,7 +29,7 @@ export function ThemeToggle() {
 						key={t}
 						className={`${
 							checked
-								? "bg-white text-blue-300 ring-1 ring-inset ring-black dark:ring-blue-300"
+								? "bg-white text-blue-400 ring-1 ring-inset ring-	black dark:ring-blue-400"
 								: ""
 						} cursor-pointer rounded-md p-1 `}
 						onClick={() => setThemeState(t)}
