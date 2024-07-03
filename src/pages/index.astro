@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { DEFAULT_CITY, SITE_TITLE } from "../config";
+import { SITE_TITLE } from "../config";
 import Content from "../components/Content.astro";
 import Masthead from "../components/Masthead.astro";
 import {
@@ -8,11 +8,7 @@ import {
 } from "../services/weatherService";
 import { MarqueeWeatherCards } from "../components/MarqueeeWeatherCards";
 import { hydrateWeatherForeCastOfMainCities } from "../hydrators/weatherHydrator";
-import { getForecastByCityName } from "../services/weatherService";
-
-const weather = await getForecastByCityName(DEFAULT_CITY);
-const temperature = weather.main.temp;
-const city = weather.name ?? DEFAULT_CITY;
+import CityForeCastCard from "../components/CityForeCastCard.astro";
 
 const weatherForeCastForMainCities = await getForecastForMainCities();
 const mainCitiesWeather = weatherForeCastForMainCities.map(
@@ -21,7 +17,10 @@ const mainCitiesWeather = weatherForeCastForMainCities.map(
 ---
 
 <Layout title={SITE_TITLE}>
-	<Masthead city={city} temperature={temperature} />
+	<CityForeCastCard />
+	<Masthead />
 	<Content />
 	<MarqueeWeatherCards client:load weatherData={mainCitiesWeather} />
 </Layout>
+
+<script src="../scripts/weather-forecast.ts"></script>

@@ -15,7 +15,7 @@ export const MarqueeWeatherCards: React.FC<MarqueeWeatherCardsProps> = ({
 	const secondRow = weatherData.slice(weatherData.length / 2);
 
 	return (
-		<div className="z-50 relative flex h-96 flex-row items-center justify-center overflow-hidden rounded-lg bg-background sm:px-20 md:shadow-xl transition-all duration-300">
+		<div className="z-50 relative flex h-80 flex-row items-center justify-center overflow-hidden rounded-lg  sm:px-20 md:shadow-xl transition-all duration-300">
 			<DotPattern
 				className={cn(
 					"[mask-image:radial-gradient(200px_circle_at_center,white,transparent)]"

@@ -2,16 +2,17 @@
 import { AUTHOR_GH_LINK, AUTHOR_NAME } from "../config";
 import TypeWriter from "./TypeWriter";
 
-const footerWords = [
-    "Weather forecast",
-    "CDG",
-    "Sevastopol"
-];
+const footerWords = ["Weather forecast", "CDG", "Sevastopol"];
 ---
 
 <footer class="text-center text-zinc-500 p-4">
-    &copy; {new Date().getFullYear()}
-    <a href={AUTHOR_GH_LINK}>{AUTHOR_NAME}</a>. All rights reserved.
+	&copy; {new Date().getFullYear()}
+	<a href={AUTHOR_GH_LINK}>{AUTHOR_NAME}</a>. All rights reserved.
+
+	<a
+		href={AUTHOR_GH_LINK}
+		class="flex justify-center items-start overflow-hidden h-10 my-1"
+	>
 		<code
 			class="leading-tight text-xs hover:text-black dark:hover:text-white transition-colors duration-700"
 		>

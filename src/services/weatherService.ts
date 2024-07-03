@@ -6,7 +6,7 @@ export const getForecastByCityName = async (
 	cityName: string
 ): Promise<WeatherResponse> => {
 	return await makeRequest("get", `${WEATHER_API_LINK}`, {
-		appid: "eab605b8aa5fec3b80aae3e6a8a12491",
+		appid: WEATHER_API_KEY,
 		q: cityName,
 		units: "metric",
 		lang: "ru",

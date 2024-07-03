@@ -6,14 +6,14 @@ interface Props {
 	video?: string;
 	className?: string;
 	city?: string;
-	temperature: number;
+	temperature?: number;
 }
 
 const {
 	video = "/video/sunny_weather.mp4",
 	className,
-	city = DEFAULT_CITY,
-	temperature,
+	city = "",
+	temperature = "",
 } = Astro.props;
 ---
 
@@ -45,7 +45,7 @@ const {
 					id="temperature"
 					class="font-light text-white dark:text-blue-300 animate-slidein text-3xl"
 				>
-					{temperature} °C
+					{temperature && `${temperature} °C`}
 				</span>
 			</div>
 		</div>
