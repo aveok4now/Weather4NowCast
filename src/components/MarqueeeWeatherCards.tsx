@@ -1,3 +1,4 @@
+import { updateWeatherInfo } from "../scripts/weather-forecast";
 import type { WeatherMainCitiesResponse } from "../types/weatherTypes";
 import Marquee from "./Marquee";
 import { MarqueeCard } from "./MarqueeCard";
@@ -17,12 +18,20 @@ export const MarqueeWeatherCards: React.FC<MarqueeWeatherCardsProps> = ({
 			<div className="pointer-events-none absolute inset-x-0 top-0 h-1/6 bg-gradient-to-b from-white/6s0 dark:from-blue-300/40 "></div>
 			<Marquee pauseOnHover vertical className="[--duration:20s]">
 				{firstRow.map((weather) => (
-					<MarqueeCard key={weather.name} {...weather} />
+					<MarqueeCard
+						key={weather.name}
+						{...weather}
+						onclick={() => updateWeatherInfo(weather.name, weather.temp)}
+					/>
 				))}
 			</Marquee>
 			<Marquee reverse pauseOnHover vertical className="[--duration:20s]">
 				{secondRow.map((weather) => (
-					<MarqueeCard key={weather.name} {...weather} />
+					<MarqueeCard
+						key={weather.name}
+						{...weather}
+						onclick={() => updateWeatherInfo(weather.name, weather.temp)}
+					/>
 				))}
 			</Marquee>
 

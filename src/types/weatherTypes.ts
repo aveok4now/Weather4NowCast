@@ -25,4 +25,5 @@ export interface WeatherMainCitiesResponse {
 	coords: string;
 	body: string;
 	img: string;
+	temp: number;
 }

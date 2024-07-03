@@ -4,7 +4,7 @@ import {
 	getForecastByCoordinates,
 } from "../services/weatherService";
 
-function updateWeatherInfo(cityName: string, temp: number) {
+export function updateWeatherInfo(cityName: string, temp: number) {
 	const cityElement = document.getElementById("city");
 	const tempElement = document.getElementById("temperature");
 
