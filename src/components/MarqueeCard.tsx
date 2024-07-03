@@ -1,5 +1,4 @@
 import { cn } from "../lib/utils";
-import { BorderBeam } from "./BorderBeam";
 
 export const MarqueeCard = ({
 	img,
@@ -20,13 +19,6 @@ export const MarqueeCard = ({
 				"dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
 			)}
 		>
-			{/* <BorderBeam
-				size={1600}
-				colorFrom="#93c5fd"
-				colorTo="#73B3FC"
-				duration={10}
-			/> */}
-
 			<div className="flex flex-row items-center gap-2">
 				<img className="rounded-full" width="32" height="32" alt="" src={img} />
 				<div className="flex flex-col">
