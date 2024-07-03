@@ -5,8 +5,8 @@ export const hydrateWeatherForeCastOfMainCities = (
 ) => ({
 	name: forecast.name,
 	coords: `${forecast.coord.lon}, ${forecast.coord.lat}`,
-	body: `${forecast.weather[0].description}, ${Math.round(
+	body: `${forecast?.weather[0]?.description}, ${Math.round(
 		forecast.main.temp
 	)}°C (ощущается как ${Math.round(forecast.main.feels_like)}°C)`,
-	img: `https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`,
+	img: `https://openweathermap.org/img/wn/${forecast?.weather[0]?.icon}.png`,
 });
