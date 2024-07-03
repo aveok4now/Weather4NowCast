@@ -29,30 +29,31 @@ apiClient.interceptors.response.use(
 type HttpMethod = "get" | "post" | "put" | "delete" | "patch";
 
 export const makeRequest = async <T = any>(
-    method: HttpMethod,
-    url: string,
-    params: Record<string, any> = {}, 
-    headers: Record<string, string> = {},
-    responseType?: AxiosRequestConfig["responseType"]
+	method: HttpMethod,
+	url: string,
+	params: Record<string, any> = {},
+	headers: Record<string, string> = {},
+	responseType?: AxiosRequestConfig["responseType"]
 ): Promise<T> => {
-    try {
-        const config: AxiosRequestConfig<any> = {
-            method,
-            url,
-            params,
-            headers,
-            responseType,
-        };
+	try {
+		const config: AxiosRequestConfig<any> = {
+			method,
+			url,
+			params,
+			headers,
+		};
 
-        const response: AxiosResponse<T> = await apiClient(config);
-        return response.data;
-    } catch (error) {
-        if (axios.isAxiosError(error)) {
-            console.warn(error);
-            throw new Error(
-                error.response ? error.response.data.message : error.message
-            );
-        }
-        throw error;
-    }
+		if (responseType !== undefined) config.responseType = responseType;
+
+		const response: AxiosResponse<T> = await apiClient(config);
+		return response.data;
+	} catch (error) {
+		if (axios.isAxiosError(error)) {
+			console.warn(error);
+			throw new Error(
+				error.response ? error.response.data.message : error.message
+			);
+		}
+		throw error;
+	}
 };
