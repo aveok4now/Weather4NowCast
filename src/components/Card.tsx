@@ -201,7 +201,7 @@ const MagicCard: React.FC<MagicCardProps> = ({
 
 			{/* Background */}
 			<div
-				className={"absolute inset-[1px] -z-20  bg-blue-300 dark:bg-black/95"}
+				className={"absolute inset-[1px] -z-20 bg-blue-300/95 dark:bg-black/95"}
 			/>
 		</div>
 	);

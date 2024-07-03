@@ -1,6 +1,4 @@
-import { cn } from "../lib/utils";
 import type { WeatherMainCitiesResponse } from "../types/weatherTypes";
-import DotPattern from "./DotPattern";
 import Marquee from "./Marquee";
 import { MarqueeCard } from "./MarqueeCard";
 
@@ -15,12 +13,7 @@ export const MarqueeWeatherCards: React.FC<MarqueeWeatherCardsProps> = ({
 	const secondRow = weatherData.slice(weatherData.length / 2);
 
 	return (
-		<div className="z-50 relative flex h-80 flex-row items-center justify-center overflow-hidden rounded-lg  sm:px-20 md:shadow-xl transition-all duration-300">
-			<DotPattern
-				className={cn(
-					"[mask-image:radial-gradient(200px_circle_at_center,white,transparent)]"
-				)}
-			/>
+		<div className="z-50 relative flex h-96 flex-row items-center justify-center overflow-hidden rounded-lg  sm:px-20 md:shadow-xl transition-all duration-300">
 			<div className="pointer-events-none absolute inset-x-0 top-0 h-1/6 bg-gradient-to-b from-white/6s0 dark:from-blue-300/40 "></div>
 			<Marquee pauseOnHover vertical className="[--duration:20s]">
 				{firstRow.map((weather) => (

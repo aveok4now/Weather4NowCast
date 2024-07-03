@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { SITE_TITLE } from "../config";
-import Content from "../components/Content.astro";
+
 import Masthead from "../components/Masthead.astro";
 import {
 	getForecastForMainCities,
@@ -17,9 +17,8 @@ const mainCitiesWeather = weatherForeCastForMainCities.map(
 ---
 
 <Layout title={SITE_TITLE}>
-	<CityForeCastCard />
 	<Masthead />
-	<Content />
+	<CityForeCastCard />
 	<MarqueeWeatherCards client:load weatherData={mainCitiesWeather} />
 </Layout>
 
