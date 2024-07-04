@@ -5,11 +5,11 @@ import DotPattern from "./DotPattern";
 import { FadeText } from "../components/FadeText";
 import { motion } from "framer-motion";
 import { BorderBeam } from "../components/BorderBeam";
-import { WEATHER_OPTIONS as weatherOptions }  from "../config";
+import { WEATHER_OPTIONS as weatherOptions } from "../config";
 ---
 
 <MagicContainer
-	className="w-full h-auto z-30 grid grid-cols-1 md:grid-cols-5 gap-4 p-4"
+	className=`w-full h-auto z-30 grid grid-cols-1 md:grid-cols-5 gap-4 p-4`
 	id="weatherContainer"
 >
 	{
@@ -81,6 +81,16 @@ import { WEATHER_OPTIONS as weatherOptions }  from "../config";
 		});
 
 		container.style.display = visibleCards === 0 ? "none" : "grid";
+		updateGridColumns(container, visibleCards);
+	}
+
+	function updateGridColumns(container: any, visibleCards: number) {
+		container.classList.remove(...container.classList);
+		container.classList.add("w-full", "h-auto", "z-30", "grid", "gap-4", "p-4");
+		console.log(visibleCards)
+
+		const gridColumnClass = `md:grid-cols-${visibleCards > 0 ? visibleCards : 1}`;
+		container.classList.add(gridColumnClass);
 	}
 
 	window.addEventListener("weatherSettingsChanged", updateWeatherCards);
