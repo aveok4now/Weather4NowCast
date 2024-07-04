@@ -14,17 +14,6 @@ export const MarqueeWeatherCards: React.FC<MarqueeWeatherCardsProps> = ({
 	const firstRow = weatherData.slice(0, weatherData.length / 2);
 	const secondRow = weatherData.slice(weatherData.length / 2);
 
-	useEffect(() => {
-		const script = document.createElement("script");
-		script.src = "/scripts/weather-forecast.js";
-		script.async = true;
-		document.body.appendChild(script);
-
-		return () => {
-			document.body.removeChild(script);
-		};
-	}, []);
-
 	const handleCardClick = (cityName: string) => {
 		(window as any).updateWeatherInfo(cityName);
 	};
