@@ -2,51 +2,51 @@
 import Particles from "./Particles";
 
 interface Props {
-	video?: string;
-	className?: string;
-	city?: string;
-	temperature?: number;
+  video?: string;
+  className?: string;
+  city?: string;
+  temperature?: number;
 }
 
 const {
-	video = "/video/sunny_weather.mp4",
-	className,
-	city = "",
-	temperature = "",
+  video = "/video/sunny_weather.mp4",
+  className,
+  city = "",
+  temperature = "",
 } = Astro.props;
 ---
 
 <main class="min-w-screen z-50 rounded-3xl">
-	<section class="relative h-80 flex justify-center items-center">
-		<div class="absolute w-full h-full overflow-hidden">
-			<Particles client:load staticity={15} size={0.6}/>
-			<video
-				class=`absolute h-auto left-1/2 top-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 opacity-50 dark:opacity-30 ${className}`
-				autoplay="autoplay"
-				muted="muted"
-				loop="loop"
-				playsinline><source src={video} type="video/mp4" /></video
-			>
-		</div>
-		<div
-			class="z-10 text-center px-8 drop-shadow-lg shadow-black backdrop-blur-xs"
-		>
-		
-			<div
-				id="city"
-				class="uppercase text-4xl text-center font-extrabold animate-slidein text-white"
-			>
-				{city}
-			</div>
+  <section class="relative h-80 flex justify-center items-center">
+    <div class="absolute w-full h-full overflow-hidden">
+      <Particles client:load staticity={15} size={0.6} />
+      <video
+        class=`absolute h-auto left-1/2 top-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 opacity-50 dark:opacity-30 ${className}`
+        autoplay="autoplay"
+        muted="muted"
+        loop="loop"
+        playsinline><source src={video} type="video/mp4" /></video
+      >
+    </div>
+    <div
+      class="z-10 text-center px-8 drop-shadow-lg shadow-black backdrop-blur-xs"
+    >
+      <div
+        id="city"
+        class="uppercase text-4xl text-center font-extrabold animate-slidein text-white mt-10"
+      >
+        {city}
+      </div>
 
-			<div class="text-2xl font-medium">
-				<span
-					id="temperature"
-					class="font-light text-white dark:text-blue-300 animate-slidein text-3xl"
-				>
-					{temperature && `${temperature} °C`}
-				</span>
-			</div>
-		</div>
-	</section>
+      <div class="text-2xl font-medium">
+        <span
+          id="temperature"
+          class="font-light text-white dark:text-blue-300 animate-slidein text-3xl"
+        >
+          {temperature && `${temperature} °C`}
+        </span>
+      </div>
+      <span class="text-gray-500" id="coordinates"></span>
+    </div>
+  </section>
 </main>
