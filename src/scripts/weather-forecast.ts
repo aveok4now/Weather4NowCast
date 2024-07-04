@@ -50,7 +50,7 @@ function updateWeatherDisplay(weather: any): void {
 async function fallbackToDefaultCity() {
 	try {
 		const weather = await getForecastByCityName(DEFAULT_CITY);
-		updateWeatherInfo(weather.name ?? DEFAULT_CITY);
+		updateWeatherInfo(weather.name);
 	} catch {}
 }
 
@@ -80,8 +80,9 @@ function initWeather() {
 	}
 }
 
-const storedCity = localStorage.getItem("city") || DEFAULT_CITY;
-updateWeatherInfo(storedCity);
+const storedCity = localStorage.getItem("city");
+if (storedCity) updateWeatherInfo(storedCity);
+
 window.updateWeatherInfo = updateWeatherInfo;
 
 initWeather();
