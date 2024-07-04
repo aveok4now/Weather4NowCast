@@ -15,6 +15,7 @@ export const MarqueeWeatherCards: React.FC<MarqueeWeatherCardsProps> = ({
 
 	const handleCardClick = (cityName: string) => {
 		(window as any).updateWeatherInfo(cityName);
+		window.scrollTo({ top: 0, behavior: "smooth" });
 	};
 
 	return (
