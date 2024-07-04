@@ -7,6 +7,8 @@ export const DEFAULT_COUNTRY = "Russia";
 export const AUTHOR_GH_LINK = "https://github.com/aveok4now";
 export const AUTHOR_NAME = "Slava Ch";
 
+export const YANDEX_MAPS_URL = "https://yandex.ru/maps";
+
 export const WEATHER_API_LINK =
 	"https://api.openweathermap.org/data/2.5/weather?";
 export const WEATHER_API_KEY = import.meta.env.PUBLIC_WEATHER_API_KEY;
@@ -29,7 +31,7 @@ export const MAIN_CITIES = [
 	"Manchester",
 	"Yalta",
 	"Minsk",
-	"Seoul"
+	"Seoul",
 ];
 
 export const WEATHER_OPTIONS = [
