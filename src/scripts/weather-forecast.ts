@@ -45,8 +45,6 @@ function updateWeatherDisplay(weather: any) {
 		const { lat, lon } = weather.coord;
 		coordinatesElement.textContent = `${lat}, ${lon}`;
 	}
-
-	localStorage.setItem("city", weather.name);
 }
 
 async function fallbackToDefaultCity() {
