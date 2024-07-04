@@ -21,6 +21,7 @@ function updateWeatherDisplay(weather: any) {
 	const windElement = document.getElementById("wind");
 	const pressureElement = document.getElementById("pressure");
 	const sunsetElement = document.getElementById("sunset");
+	const coordinatesElement = document.getElementById("coordinates");
 
 	if (cityElement) cityElement.textContent = weather.name;
 	if (tempElement)
@@ -40,7 +41,10 @@ function updateWeatherDisplay(weather: any) {
 		sunsetElement.textContent = sunsetTime;
 	}
 
-	localStorage.setItem("city", weather.name);
+	if (coordinatesElement) {
+		const { lat, lon } = weather.coord;
+		coordinatesElement.textContent = `${lat}, ${lon}`;
+	}
 }
 
 async function fallbackToDefaultCity() {

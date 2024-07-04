@@ -5,13 +5,13 @@ import TypeWriter from "./TypeWriter";
 const footerWords = ["Weather forecast", "CDG", "Sevastopol"];
 ---
 
-<footer class="text-center text-zinc-500 p-4">
+<footer id="footer" class="text-center text-zinc-400 p-4 hidden fixed bottom-0 left-0 right-0">
 	&copy; {new Date().getFullYear()}
 	<a href={AUTHOR_GH_LINK}>{AUTHOR_NAME}</a>. All rights reserved.
 
 	<a
 		href={AUTHOR_GH_LINK}
-		class="flex justify-center items-start overflow-hidden h-10 my-1"
+		class="flex justify-center items-start overflow-hidden h-10 "
 	>
 		<code
 			class="leading-tight text-xs hover:text-black dark:hover:text-white transition-colors duration-700"
@@ -26,3 +26,27 @@ const footerWords = ["Weather forecast", "CDG", "Sevastopol"];
 		</code>
 	</a>
 </footer>
+
+<script>
+	document.addEventListener("scroll", () => {
+		const footer = document.getElementById("footer");
+		const scrollPosition = window.scrollY + window.innerHeight;
+		const documentHeight = document.documentElement.scrollHeight;
+
+		if (scrollPosition >= documentHeight) {
+			footer?.classList.remove("hidden");
+		} else {
+			footer?.classList.add("hidden");
+		}
+	});
+
+	document.addEventListener("DOMContentLoaded", () => {
+		const footer = document.getElementById("footer");
+		const scrollPosition = window.scrollY + window.innerHeight;
+		const documentHeight = document.documentElement.scrollHeight;
+
+		if (scrollPosition >= documentHeight) {
+			footer?.classList.remove("hidden");
+		}
+	});
+</script>

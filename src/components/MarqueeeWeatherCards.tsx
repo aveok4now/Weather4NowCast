@@ -18,7 +18,7 @@ export const MarqueeWeatherCards: React.FC<MarqueeWeatherCardsProps> = ({
 	};
 
 	return (
-		<div className="z-40 relative flex h-screen flex-row items-center justify-center overflow-hidden rounded-lg  sm:px-20 md:shadow-xl transition-all duration-300">
+		<div className="z-0 relative flex h-screen flex-row items-center justify-center overflow-hidden rounded-lg sm:px-20 md:shadow-xl transition-all duration-300">
 			<div className="pointer-events-none absolute inset-x-0 top-0 h-[10%] bg-gradient-to-b from-white/60 dark:from-blue-300/40 "></div>
 			<Marquee pauseOnHover vertical className="[--duration:20s]">
 				{firstRow.map((weather) => (
