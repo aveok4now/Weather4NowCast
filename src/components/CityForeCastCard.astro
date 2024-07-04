@@ -5,14 +5,7 @@ import DotPattern from "./DotPattern";
 import { FadeText } from "../components/FadeText";
 import { motion } from "framer-motion";
 import { BorderBeam } from "../components/BorderBeam";
-
-const weatherDetails = [
-	{ title: "Ощущается как", id: "feels-like" },
-	{ title: "Влажность", id: "humidity" },
-	{ title: "Ветер", id: "wind" },
-	{ title: "Давление", id: "pressure" },
-	{ title: "Время заката", id: "sunset" },
-];
+import { WEATHER_OPTIONS as weatherOptions }  from "../config";
 ---
 
 <MagicContainer
@@ -20,11 +13,11 @@ const weatherDetails = [
 	id="weatherContainer"
 >
 	{
-		weatherDetails.map((detail) => (
+		weatherOptions.map((option) => (
 			<MagicCard
 				borderWidth={2}
-				className="flex flex-col items-center justify-center p-4 shadow-2xl overflow-hidden weather-card"
-				data-id={detail.id}
+				className="hidden flex-col items-center justify-center p-4 shadow-2xl overflow-hidden weather-card"
+				data-id={option.id}
 			>
 				<BorderBeam />
 				<DotPattern
@@ -38,17 +31,17 @@ const weatherDetails = [
 					framerProps={{
 						show: { transition: { delay: 0.2 } },
 					}}
-					text={detail.title}
+					text={option.title}
 					client:load
 				/>
 				<motion.p
-					id={detail.id}
-					key={detail.id}
+					id={option.id}
+					key={option.id}
 					className="origin-center drop-shadow-sm text-2xl font-bold"
 					initial="hidden"
 					animate="visible"
 					exit="hidden"
-					transition={{ duration: 0.5, delay: Number(detail.id) * 0.08 }}
+					transition={{ duration: 0.5, delay: Number(option.id) * 0.08 }}
 					variants={{
 						hidden: { rotateX: -90, opacity: 0 },
 						visible: { rotateX: 0, opacity: 1 },

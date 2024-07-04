@@ -1,13 +1,6 @@
 import { Settings } from "lucide-react";
 import { useEffect, useState } from "react";
-
-const weatherOptions = [
-	{ id: "feels-like", label: "Ощущается как" },
-	{ id: "humidity", label: "Влажность" },
-	{ id: "wind", label: "Ветер" },
-	{ id: "pressure", label: "Давление" },
-	{ id: "sunset", label: "Время заката" },
-] as const;
+import { WEATHER_OPTIONS as weatherOptions } from "../config";
 
 type WeatherOptionId = (typeof weatherOptions)[number]["id"];
 
@@ -60,7 +53,7 @@ export function WeatherSettingsToggle() {
 									onChange={() => toggleSetting(option.id)}
 									className="mr-2"
 								/>
-								{option.label}
+								{option.title}
 							</label>
 						))}
 					</div>

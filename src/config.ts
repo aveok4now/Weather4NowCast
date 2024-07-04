@@ -30,3 +30,11 @@ export const MAIN_CITIES = [
 	"Yalta",
 	"Minsk",
 ];
+
+export const WEATHER_OPTIONS = [
+	{ title: "Ощущается как", id: "feels-like" },
+	{ title: "Влажность", id: "humidity" },
+	{ title: "Ветер", id: "wind" },
+	{ title: "Давление", id: "pressure" },
+	{ title: "Время заката", id: "sunset" },
+];
