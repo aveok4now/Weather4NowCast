@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
-import useClickOutside from "../hooks/useClickOutside";
-import useEscapeKey from "../hooks/useEscapeKey";
-import { debounce } from "../lib/utils";
-import { getCityCountryImage, searchCities } from "../services/weatherService";
-import { BorderBeam } from "./BorderBeam";
+import useClickOutside from "../../../hooks/useClickOutside";
+import useEscapeKey from "../../../hooks/useEscapeKey";
+import { debounce } from "../../../lib/utils";
+import {
+	getCityCountryImage,
+	searchCities,
+} from "../../../services/weatherService";
+import { BorderBeam } from "../magic/BorderBeam";
+import LinearGradient from "../magic/LinearGradient";
 import { Input } from "./Input";
-import LinearGradient from "./LinearGradient";
 
 interface CityInfo {
 	name: string;

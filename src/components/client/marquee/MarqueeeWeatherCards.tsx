@@ -1,5 +1,5 @@
-import type { WeatherMainCitiesResponse } from "../types/weatherTypes";
-import LinearGradient from "./LinearGradient";
+import type { WeatherMainCitiesResponse } from "../../../types/weatherTypes";
+import LinearGradient from "../magic/LinearGradient";
 import Marquee from "./Marquee";
 import { MarqueeCard } from "./MarqueeCard";
 
@@ -15,6 +15,7 @@ export const MarqueeWeatherCards: React.FC<MarqueeWeatherCardsProps> = ({
 
 	const handleCardClick = (cityName: string) => {
 		(window as any).updateWeatherInfo(cityName);
+		window.scrollTo({ top: 0, behavior: "smooth" });
 	};
 
 	return (

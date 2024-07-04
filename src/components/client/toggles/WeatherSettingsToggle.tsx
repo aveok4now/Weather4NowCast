@@ -1,6 +1,6 @@
 import { Settings } from "lucide-react";
 import { useEffect, useState } from "react";
-import { WEATHER_OPTIONS as weatherOptions } from "../config";
+import { WEATHER_OPTIONS as weatherOptions } from "../../../config";
 
 type WeatherOptionId = (typeof weatherOptions)[number]["id"];
 

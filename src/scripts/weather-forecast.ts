@@ -13,7 +13,7 @@ async function updateWeatherInfo(cityName: string) {
 	}
 }
 
-function updateWeatherDisplay(weather: any) {
+function updateWeatherDisplay(weather: any): void {
 	const cityElement = document.getElementById("city");
 	const tempElement = document.getElementById("temperature");
 	const feelsLikeElement = document.getElementById("feels-like");

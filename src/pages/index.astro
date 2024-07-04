@@ -2,13 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import { SITE_TITLE } from "../config";
 
-import Masthead from "../components/Masthead.astro";
+import Masthead from "../components/server/Masthead.astro";
 import {
 	getForecastForMainCities,
 } from "../services/weatherService";
-import { MarqueeWeatherCards } from "../components/MarqueeeWeatherCards";
+import { MarqueeWeatherCards } from "../components/client/marquee/MarqueeeWeatherCards";
 import { hydrateWeatherForeCastOfMainCities } from "../hydrators/weatherHydrator";
-import CityForeCastCard from "../components/CityForeCastCard.astro";
+import CityForeCastCard from "../components/server/CityForeCastCard.astro";
 
 const weatherForeCastForMainCities = await getForecastForMainCities();
 const mainCitiesWeather = weatherForeCastForMainCities.map(
