@@ -2,26 +2,36 @@
 import { cn } from "../lib/utils";
 import { MagicCard, MagicContainer } from "./Card";
 import DotPattern from "./DotPattern";
+
+const weatherDetails = [
+	{ title: "Ощущается как", id: "feels-like" },
+	{ title: "Влажность", id: "humidity" },
+	{ title: "Ветер", id: "wind" },
+	{ title: "Давление", id: "pressure" },
+	{ title: "Время заката", id: "sunset" },
+];
 ---
 
-<MagicContainer className={"w-full h-80 z-30 "}>
-	<MagicCard
-		borderWidth={0}
-		className="flex w-full cursor-pointer flex-col items-center justify-center overflow-hiddenbg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),#ffaa40_0,#9c40ff_50%,transparent_100%)]  p-20 shadow-2xl "
-	>
-		<DotPattern
-			className={cn(
-				"[mask-image:radial-gradient(200px_circle_at_center,white,transparent)]"
-			)}
-		/>
-		<p
-			class="z-10 whitespace-nowrap text-4xl font-medium text-gray-800 dark:text-gray-200"
-		>
-			Magic
-		</p>
-		<div
-			class="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(0,255,255,0))]"
-		>
-		</div>
-	</MagicCard>
+<MagicContainer
+	className="w-full h-80 z-30 grid grid-cols-1 md:grid-cols-5 gap-4 p-4 items-center rounded-3xl bg-[radial-gradient(var(--mask-size)_circle_at_var(--mouse-x)_var(--mouse-y),#ffaa40_0,#9c40ff_50%,transparent_100%)]"
+>
+	{
+		weatherDetails.map((detail) => (
+			<MagicCard
+				borderWidth={2}
+				className="flex flex-col items-center justify-center p-4 shadow-2xl h-1/2 overflow-hidden"
+			>
+				<DotPattern
+					className={cn(
+						"absolute inset-0 h-full w-full [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+					)}
+				/>
+				<h3 class="text-lg font-semibold mb-2">{detail.title}</h3>
+				<p id={detail.id} class="text-2xl font-bold">
+					-
+				</p>
+			</MagicCard>
+		))
+	}
 </MagicContainer>
+

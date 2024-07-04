@@ -1,4 +1,4 @@
-import { updateWeatherInfo } from "../scripts/weather-forecast";
+import { useEffect } from "react";
 import type { WeatherMainCitiesResponse } from "../types/weatherTypes";
 import Marquee from "./Marquee";
 import { MarqueeCard } from "./MarqueeCard";
@@ -13,6 +13,21 @@ export const MarqueeWeatherCards: React.FC<MarqueeWeatherCardsProps> = ({
 	const firstRow = weatherData.slice(0, weatherData.length / 2);
 	const secondRow = weatherData.slice(weatherData.length / 2);
 
+	useEffect(() => {
+		const script = document.createElement("script");
+		script.src = "/scripts/weather-forecast.js";
+		script.async = true;
+		document.body.appendChild(script);
+
+		return () => {
+			document.body.removeChild(script);
+		};
+	}, []);
+
+	const handleCardClick = (cityName: string) => {
+		(window as any).updateWeatherInfo(cityName);
+	};
+
 	return (
 		<div className="z-50 relative flex h-96 flex-row items-center justify-center overflow-hidden rounded-lg  sm:px-20 md:shadow-xl transition-all duration-300">
 			<div className="pointer-events-none absolute inset-x-0 top-0 h-1/6 bg-gradient-to-b from-white/6s0 dark:from-blue-300/40 "></div>
@@ -21,7 +36,7 @@ export const MarqueeWeatherCards: React.FC<MarqueeWeatherCardsProps> = ({
 					<MarqueeCard
 						key={weather.name}
 						{...weather}
-						onclick={() => updateWeatherInfo(weather.name, weather.temp)}
+						onclick={() => handleCardClick(weather.name)}
 					/>
 				))}
 			</Marquee>
@@ -30,11 +45,10 @@ export const MarqueeWeatherCards: React.FC<MarqueeWeatherCardsProps> = ({
 					<MarqueeCard
 						key={weather.name}
 						{...weather}
-						onclick={() => updateWeatherInfo(weather.name, weather.temp)}
+						onclick={() => handleCardClick(weather.name)}
 					/>
 				))}
 			</Marquee>
-
 			<div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-blue-300/60 dark:from-black"></div>
 		</div>
 	);
