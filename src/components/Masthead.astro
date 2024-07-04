@@ -1,23 +1,22 @@
 ---
-import { DEFAULT_CITY } from "../config";
 import Particles from "./Particles";
 
 interface Props {
 	video?: string;
 	className?: string;
 	city?: string;
-	temperature: number;
+	temperature?: number;
 }
 
 const {
 	video = "/video/sunny_weather.mp4",
 	className,
-	city = DEFAULT_CITY,
-	temperature,
+	city = "",
+	temperature = "",
 } = Astro.props;
 ---
 
-<main class="min-w-screen">
+<main class="min-w-screen z-50 rounded-3xl">
 	<section class="relative h-80 flex justify-center items-center">
 		<div class="absolute w-full h-full overflow-hidden">
 			<Particles client:load staticity={15} size={0.6}/>
@@ -45,7 +44,7 @@ const {
 					id="temperature"
 					class="font-light text-white dark:text-blue-300 animate-slidein text-3xl"
 				>
-					{temperature} °C
+					{temperature && `${temperature} °C`}
 				</span>
 			</div>
 		</div>

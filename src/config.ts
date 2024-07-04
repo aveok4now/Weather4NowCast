@@ -9,7 +9,7 @@ export const AUTHOR_NAME = "Slava Ch";
 
 export const WEATHER_API_LINK =
 	"https://api.openweathermap.org/data/2.5/weather?";
-export const WEATHER_API_KEY = import.meta.env.WEATHER_API_KEY;
+export const WEATHER_API_KEY = import.meta.env.PUBLIC_WEATHER_API_KEY;
 
 export const MAIN_CITIES = [
 	"Sevastopol",
@@ -29,4 +29,12 @@ export const MAIN_CITIES = [
 	"Manchester",
 	"Yalta",
 	"Minsk",
+];
+
+export const WEATHER_OPTIONS = [
+	{ title: "Ощущается как", id: "feels-like" },
+	{ title: "Влажность", id: "humidity" },
+	{ title: "Ветер", id: "wind" },
+	{ title: "Давление", id: "pressure" },
+	{ title: "Время заката", id: "sunset" },
 ];
