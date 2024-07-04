@@ -5,6 +5,7 @@ import {
 	WEATHER_GEOCODING_API_LINK,
 	WEATHER_IMAGES_LINK,
 } from "../config";
+import { hydrateSearchResults } from "../hydrators/weatherHydrator";
 import type {
 	CitySearchResponse,
 	WeatherResponse,
@@ -53,12 +54,7 @@ export const searchCities = async (
 	});
 
 	if (Array.isArray(response)) {
-		return response.map((city: any) => ({
-			name: city.name,
-			localName: city.local_names?.ru || city.name,
-			country: city.country,
-			countryCode: city.country.toLowerCase(),
-		}));
+		return hydrateSearchResults(response);
 	} else {
 		return [];
 	}
