@@ -79,4 +79,5 @@ function initWeather() {
 const storedCity = localStorage.getItem("city") || DEFAULT_CITY;
 updateWeatherInfo(storedCity);
 window.updateWeatherInfo = updateWeatherInfo;
+
 initWeather();

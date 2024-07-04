@@ -34,9 +34,10 @@ function useMousePosition(): MousePosition {
 interface MagicContainerProps {
 	children?: ReactNode;
 	className?: any;
+	id: string;
 }
 
-const MagicContainer = ({ children, className }: MagicContainerProps) => {
+const MagicContainer = ({ children, className, id }: MagicContainerProps) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const mousePosition = useMousePosition();
 	const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
@@ -99,7 +100,7 @@ const MagicContainer = ({ children, className }: MagicContainerProps) => {
 	};
 
 	return (
-		<div className={cn("h-full w-full", className)} ref={containerRef}>
+		<div className={cn("h-full w-full", className)} ref={containerRef} id={id}>
 			{children}
 		</div>
 	);
