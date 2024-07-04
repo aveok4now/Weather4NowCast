@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
+import useClickOutside from "../hooks/useClickOutside";
+import useEscapeKey from "../hooks/useEscapeKey";
 import { debounce } from "../lib/utils";
 import { getCityCountryImage, searchCities } from "../services/weatherService";
 import { BorderBeam } from "./BorderBeam";
@@ -52,21 +54,13 @@ const SearchInput: React.FC = () => {
 		};
 	}, [searchTerm]);
 
-	useEffect(() => {
-		const handleClickOutside = (event: MouseEvent) => {
-			if (
-				searchRef.current &&
-				!searchRef.current.contains(event.target as Node)
-			) {
-				setSuggestions([]);
-				setNoResults(false);
-			}
-		};
-		document.addEventListener("mousedown", handleClickOutside);
-		return () => {
-			document.removeEventListener("mousedown", handleClickOutside);
-		};
-	}, []);
+	const handleClose = () => {
+		setSuggestions([]);
+		setNoResults(false);
+	};
+
+	useEscapeKey(handleClose);
+	useClickOutside(searchRef, handleClose);
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchTerm(e.target.value);
@@ -134,7 +128,7 @@ const SearchInput: React.FC = () => {
 			</div>
 			{isLoading && (
 				<div className="absolute w-full text-center mt-1">
-					<span className="text-blue-400">Загрузка...</span>
+					<span className="text-white dark:text-blue-400">Загрузка...</span>
 				</div>
 			)}
 			{renderSuggestions()}
