@@ -29,6 +29,7 @@ export const MAIN_CITIES = [
 	"Manchester",
 	"Yalta",
 	"Minsk",
+	"Seoul"
 ];
 
 export const WEATHER_OPTIONS = [
