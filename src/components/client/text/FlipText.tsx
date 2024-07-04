@@ -3,7 +3,7 @@
 import type { Variants } from "framer-motion";
 import { AnimatePresence, motion } from "framer-motion";
 
-import { cn } from "../lib/utils";
+import { cn } from "../../../lib/utils";
 
 interface SlightFlipProps {
 	id: string;

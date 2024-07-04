@@ -5,7 +5,6 @@ interface ImportMetaEnv {
 interface ImportMeta {
 	readonly env: ImportMetaEnv;
 }
-
 interface Window {
 	updateWeatherInfo: (cityName: string) => Promise<void>;
 }
