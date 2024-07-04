@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import type { WeatherMainCitiesResponse } from "../types/weatherTypes";
 import LinearGradient from "./LinearGradient";
 import Marquee from "./Marquee";
