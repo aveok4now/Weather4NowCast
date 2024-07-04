@@ -46,7 +46,7 @@ export function WeatherSettingsToggle() {
 				onClick={() => setIsOpen(!isOpen)}
 				className="inline-flex items-center rounded-md bg-blue-300 dark:bg-black p-1"
 			>
-				<Settings className="h-[1.2rem] w-[1.2rem]" />
+				<Settings className="h-[1.2rem] w-[1.2rem] rotate-0 scale-90 transition-all duration-300 dark:-rotate-120 dark:scale-100" />
 			</button>
 			{isOpen && (
 				<div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
