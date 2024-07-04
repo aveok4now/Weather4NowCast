@@ -27,3 +27,10 @@ export interface WeatherMainCitiesResponse {
 	img: string;
 	temp: number;
 }
+
+export interface CitySearchResponse {
+	name: string;
+	localName: string;
+	country: string;
+	countryCode: string;
+}

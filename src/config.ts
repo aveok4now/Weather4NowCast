@@ -11,7 +11,10 @@ export const YANDEX_MAPS_URL = "https://yandex.ru/maps";
 
 export const WEATHER_API_LINK =
 	"https://api.openweathermap.org/data/2.5/weather?";
+export const WEATHER_GEOCODING_API_LINK =
+	"http://api.openweathermap.org/geo/1.0/direct";
 export const WEATHER_API_KEY = import.meta.env.PUBLIC_WEATHER_API_KEY;
+export const WEATHER_IMAGES_LINK = "https://flagcdn.com/24x18";
 
 export const MAIN_CITIES = [
 	"Sevastopol",

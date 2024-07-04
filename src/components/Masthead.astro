@@ -1,6 +1,7 @@
 ---
 import Particles from "./Particles";
 import { YANDEX_MAPS_URL } from "../config";
+import SearchInput from "./SearchInput"
 
 interface Props {
 	video?: string;
@@ -30,11 +31,11 @@ const {
 			>
 		</div>
 		<div
-			class="z-10 text-center px-8 drop-shadow-lg shadow-black backdrop-blur-xs"
+			class="z-10 text-center px-8 drop-shadow-lg shadow-black backdrop-blur-xs w-full mt-10"
 		>
 			<div
 				id="city"
-				class="uppercase text-4xl text-center font-extrabold animate-slidein text-white mt-10"
+				class="uppercase text-4xl text-center font-extrabold animate-slidein text-white"
 			>
 				{city}
 			</div>
@@ -54,7 +55,13 @@ const {
 			>
 				<span id="coordinates"></span>
 			</a>
+			
+			<div class="mt-10 z-50">
+				<SearchInput client:load />
+			</div>
+			
 		</div>
+		
 	</section>
 </main>
 
