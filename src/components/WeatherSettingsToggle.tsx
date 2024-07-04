@@ -8,6 +8,11 @@ type WeatherSettings = {
 	[K in WeatherOptionId]: boolean;
 };
 
+const defaultSettings: WeatherSettings = weatherOptions.reduce(
+	(acc, option) => ({ ...acc, [option.id]: true }),
+	{} as WeatherSettings
+);
+
 export function WeatherSettingsToggle() {
 	const [isOpen, setIsOpen] = useState(false);
 	const [settings, setSettings] = useState<WeatherSettings>(() =>
@@ -21,7 +26,11 @@ export function WeatherSettingsToggle() {
 		const savedSettings = localStorage.getItem("weatherSettings");
 		if (savedSettings) {
 			setSettings(JSON.parse(savedSettings) as WeatherSettings);
+		} else {
+			localStorage.setItem("weatherSettings", JSON.stringify(defaultSettings));
 		}
+
+		window.dispatchEvent(new Event("weatherSettingsChanged"));
 	}, []);
 
 	const toggleSetting = (id: WeatherOptionId) => {
