@@ -50,7 +50,7 @@ export const updateSavedCitiesList = (containerId: string): void => {
 	savedCities.forEach((city) => {
 		const cityElement = document.createElement("div");
 		cityElement.className =
-			"saved-city bg-blue-100 rounded-full px-3 py-1 flex items-center";
+			"saved-city bg-blue-300 rounded-full px-3 py-1 flex items-center";
 		cityElement.innerHTML = `
       	  <img src="https://flagcdn.com/${city.countryCode.toLowerCase()}.svg" width="20" class="mr-2" alt="${
 			city.countryCode
