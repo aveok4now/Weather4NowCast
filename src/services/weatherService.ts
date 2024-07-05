@@ -50,7 +50,7 @@ export const searchCities = async (
 	const response = await makeRequest("get", WEATHER_GEOCODING_API_LINK, {
 		appid: WEATHER_API_KEY,
 		q: query,
-		limit: 5,
+		limit: 1,
 	});
 
 	if (Array.isArray(response)) {
