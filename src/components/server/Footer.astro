@@ -5,13 +5,16 @@ import TypeWriter from "../client/text/TypeWriter";
 const footerWords = ["Weather forecast", "CDG", "Sevastopol"];
 ---
 
-<footer id="footer" class="text-center text-zinc-100 dark:text-zinc-400 p-4 hidden fixed bottom-0 left-0 right-0">
+<footer
+	id="footer"
+	class="text-center text-zinc-100 dark:text-zinc-400 p-4 hidden fixed bottom-0 left-0 right-0"
+>
 	&copy; {new Date().getFullYear()}
 	<a href={AUTHOR_GH_LINK}>{AUTHOR_NAME}</a>. All rights reserved.
 
 	<a
 		href={AUTHOR_GH_LINK}
-		class="flex justify-center items-start overflow-hidden h-10 "
+		class="flex justify-center items-start overflow-hidden h-10"
 	>
 		<code
 			class="leading-tight text-xs hover:text-black dark:hover:text-white transition-colors duration-700"
