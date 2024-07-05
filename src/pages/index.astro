@@ -1,11 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { SITE_TITLE } from "../config";
-
 import Masthead from "../components/server/Masthead.astro";
-import {
-	getForecastForMainCities,
-} from "../services/weatherService";
+import { getForecastForMainCities } from "../services/weatherService";
 import { MarqueeWeatherCards } from "../components/client/marquee/MarqueeeWeatherCards";
 import { hydrateWeatherForeCastOfMainCities } from "../hydrators/weatherHydrator";
 import CityForeCastCard from "../components/server/CityForeCastCard.astro";

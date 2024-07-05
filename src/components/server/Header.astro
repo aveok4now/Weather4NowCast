@@ -1,10 +1,10 @@
 ---
 import { SITE_TITLE } from "../../config";
 import { ThemeToggle } from "../client/toggles/ThemeToggle";
-import {WeatherSettingsToggle} from "../client/toggles/WeatherSettingsToggle"
+import { WeatherSettingsToggle } from "../client/toggles/WeatherSettingsToggle";
 ---
 
-<header class="bg-transparent backdrop-blur-3xl fixed w-full z-50 p-3">
+<header class="bg-transparent backdrop-blur-3xl fixed w-full z-20 p-3">
 	<div class="mx-auto max-w-3xl">
 		<nav class="flex items-center gap-4">
 			<a
@@ -14,8 +14,8 @@ import {WeatherSettingsToggle} from "../client/toggles/WeatherSettingsToggle"
 				{SITE_TITLE}</a
 			>
 			<div class="flex-1"></div>
-			<ThemeToggle client:visible />
-			<WeatherSettingsToggle client:visible/>
+			<ThemeToggle client:idle />
+			<WeatherSettingsToggle client:load />
 		</nav>
 	</div>
 </header>

@@ -6,6 +6,7 @@ import { FadeText } from "../client/text/FadeText";
 import { motion } from "framer-motion";
 import { BorderBeam } from "../client/magic/BorderBeam";
 import { WEATHER_OPTIONS as weatherOptions } from "../../config";
+import ShinyButton from "../client/magic/ShinyButton";
 ---
 
 <MagicContainer
@@ -53,9 +54,24 @@ import { WEATHER_OPTIONS as weatherOptions } from "../../config";
 			</MagicCard>
 		))
 	}
+	<div class="flex items-center justify-center">
+		<ShinyButton text="Сохранить город" id="saveCityButton" client:visible />
+	</div>
+	<div
+		id="savedCitiesContainer"
+		class="flex flex-wrap justify-start md:justify-center gap-2 text-black relative"
+	>
+	</div>
 </MagicContainer>
 
 <script>
+	import { updateSavedCitiesList } from "../../services/savedCitiesService.ts";
+
+	document.addEventListener("DOMContentLoaded", () => {
+		updateSavedCitiesList("savedCitiesContainer");
+		updateWeatherCards();
+	});
+
 	function updateWeatherCards() {
 		const container = document.getElementById("weatherContainer");
 		if (!container) return;
@@ -97,5 +113,4 @@ import { WEATHER_OPTIONS as weatherOptions } from "../../config";
 	}
 
 	window.addEventListener("weatherSettingsChanged", updateWeatherCards);
-	document.addEventListener("DOMContentLoaded", updateWeatherCards);
 </script>

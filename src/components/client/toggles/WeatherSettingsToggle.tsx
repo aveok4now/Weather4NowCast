@@ -1,6 +1,9 @@
 import { Settings } from "lucide-react";
 import { useEffect, useState } from "react";
 import { WEATHER_OPTIONS as weatherOptions } from "../../../config";
+import LinearGradient from "../magic/LinearGradient";
+import { Label } from "../text/Label";
+import { Switch } from "./Switch";
 
 type WeatherOptionId = (typeof weatherOptions)[number]["id"];
 
@@ -44,26 +47,26 @@ export function WeatherSettingsToggle() {
 		<div className="relative">
 			<button
 				onClick={() => setIsOpen(!isOpen)}
-				className="inline-flex items-center rounded-md bg-blue-300 dark:bg-black p-1"
+				className="inline-flex items-center rounded-md bg-blue-300 dark:bg-black p-1 ring-1 ring-inset ring-black dark:ring-blue-400"
 			>
-				<Settings className="h-[1.2rem] w-[1.2rem] rotate-0 scale-90 transition-all duration-300 dark:-rotate-120 dark:scale-100" />
+				<Settings className="h-[1.2rem] w-[1.2rem] transition-all duration-300 scale-90 active:-scale-100 hover:text-white dark:text-white dark:hover:text-blue-300" />
 			</button>
 			{isOpen && (
 				<div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
-					<div className="py-1">
+					<LinearGradient className="rounded-md" />
+					<div className="py-1 rounded-md z-20">
 						{weatherOptions.map((option) => (
-							<label
-								key={option.id}
-								className="flex items-center px-4 py-2 text-sm"
-							>
-								<input
-									type="checkbox"
-									checked={settings[option.id]}
-									onChange={() => toggleSetting(option.id)}
-									className="mr-2"
+							<div className="flex items-center space-x-2" key={option.id}>
+								<Switch
+									id="airplane-mode"
+									checked={Boolean(settings[option.id])}
+									onCheckedChange={() => toggleSetting(option.id)}
+									className="my-1 mx-1"
 								/>
-								{option.title}
-							</label>
+								<Label htmlFor="airplane-mode" className="font-light">
+									{option.title}
+								</Label>
+							</div>
 						))}
 					</div>
 				</div>

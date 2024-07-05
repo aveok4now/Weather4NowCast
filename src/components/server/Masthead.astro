@@ -1,7 +1,7 @@
 ---
 import Particles from "../client/magic/Particles";
 import { YANDEX_MAPS_URL } from "../../config";
-import SearchInput from "../client/inputs/SearchInput"
+import SearchInput from "../client/inputs/SearchInput";
 
 interface Props {
 	video?: string;
@@ -18,7 +18,7 @@ const {
 } = Astro.props;
 ---
 
-<main class="min-w-screen z-50 rounded-3xl">
+<main class="z-10 rounded-3xl">
 	<section class="relative h-80 flex justify-center items-center">
 		<div class="absolute w-full h-full overflow-hidden">
 			<Particles client:load staticity={15} size={0.6} />
@@ -35,7 +35,7 @@ const {
 		>
 			<div
 				id="city"
-				class="uppercase text-4xl text-center font-extrabold animate-slidein text-white"
+				class="uppercase text-4xl text-center font-extrabold animate-slidein text-white flex flex-row items-center justify-center"
 			>
 				{city}
 			</div>
@@ -55,13 +55,11 @@ const {
 			>
 				<span id="coordinates"></span>
 			</a>
-			
+
 			<div class="mt-10 z-50">
 				<SearchInput client:load />
 			</div>
-			
 		</div>
-		
 	</section>
 </main>
 
