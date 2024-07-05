@@ -47,7 +47,7 @@ export function WeatherSettingsToggle() {
 		<div className="relative">
 			<button
 				onClick={() => setIsOpen(!isOpen)}
-				className="inline-flex items-center rounded-md bg-blue-300 dark:bg-black p-1"
+				className="inline-flex items-center rounded-md bg-blue-300 dark:bg-black p-1 ring-1 ring-inset ring-black dark:ring-blue-400"
 			>
 				<Settings className="h-[1.2rem] w-[1.2rem] transition-all duration-300 scale-10 active:-scale-100 hover:text-white dark:text-white dark:hover:text-blue-300" />
 			</button>

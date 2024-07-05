@@ -1,18 +1,31 @@
 import { DEFAULT_CITY } from "../config";
 import {
+	removeCity,
+	saveCity,
+	updateSavedCitiesList,
+} from "../services/savedCitiesService";
+import {
 	getForecastByCityName,
 	getForecastByCoordinates,
 } from "../services/weatherService";
 
-async function updateWeatherInfo(cityName: string) {
+async function updateWeatherInfo(
+	cityName: string,
+	scrollToTop: boolean = false
+) {
 	try {
 		const weather = await getForecastByCityName(cityName);
 		updateWeatherDisplay(weather);
+		if (scrollToTop) {
+			window.scrollTo({
+				top: 0,
+				behavior: "smooth",
+			});
+		}
 	} catch (error) {
 		console.error("Error fetching weather data:", error);
 	}
 }
-
 function updateWeatherDisplay(weather: any): void {
 	const cityElement = document.getElementById("city");
 	const tempElement = document.getElementById("temperature");
@@ -80,9 +93,38 @@ function initWeather() {
 	}
 }
 
-const storedCity = localStorage.getItem("city");
-if (storedCity) updateWeatherInfo(storedCity);
+document.addEventListener("DOMContentLoaded", () => {
+	initWeather();
+	updateSavedCitiesList("savedCitiesContainer");
 
-window.updateWeatherInfo = updateWeatherInfo;
+	const storedCity = localStorage.getItem("city");
+	if (storedCity) updateWeatherInfo(storedCity);
 
-initWeather();
+	window.updateWeatherInfo = updateWeatherInfo;
+
+	const saveButton = document.getElementById("saveCityButton");
+	saveButton?.addEventListener("click", async () => {
+		const cityElement = document.getElementById("city");
+		if (cityElement && cityElement.textContent) {
+			await saveCity(cityElement.textContent);
+			updateSavedCitiesList("savedCitiesContainer");
+		}
+	});
+
+	document
+		.getElementById("savedCitiesContainer")
+		?.addEventListener("click", (event) => {
+			const target = event.target as HTMLElement;
+			if (target.classList.contains("city-name")) {
+				const cityName = target.textContent;
+				if (cityName) updateWeatherInfo(cityName, true);
+			} else if (target.classList.contains("remove-city")) {
+				const cityElement = target.closest(".saved-city");
+				const cityName = cityElement?.querySelector(".city-name")?.textContent;
+				if (cityName) {
+					removeCity(cityName);
+					updateSavedCitiesList("savedCitiesContainer");
+				}
+			}
+		});
+});
