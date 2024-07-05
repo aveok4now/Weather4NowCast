@@ -105,7 +105,7 @@ const SearchInput: React.FC = () => {
 								</div>
 							</li>
 						))}
-						{noResults && !isLoading && (
+						{suggestions.length === 0 && (
 							<li className="p-2 text-center text-gray-500">
 								Ничего не найдено
 							</li>
@@ -118,7 +118,7 @@ const SearchInput: React.FC = () => {
 	};
 
 	return (
-		<div ref={searchRef} className="relative w-2/3 lg:w-1/4 m-auto z-50">
+		<div ref={searchRef} className="relative w-2/3 lg:w-1/4 m-auto z-50 h-20">
 			<div className="flex items-center">
 				<Input
 					type="text"
