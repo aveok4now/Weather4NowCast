@@ -1,5 +1,6 @@
 ---
 import { SITE_TITLE } from "../../config";
+import { DropdownMenu } from "../client/toggles/DropdownMenu";
 import { ThemeToggle } from "../client/toggles/ThemeToggle";
 import {WeatherSettingsToggle} from "../client/toggles/WeatherSettingsToggle"
 ---
@@ -16,6 +17,7 @@ import {WeatherSettingsToggle} from "../client/toggles/WeatherSettingsToggle"
 			<div class="flex-1"></div>
 			<ThemeToggle client:idle />
 			<WeatherSettingsToggle client:idle/>
+			<DropdownMenu client:idle/>
 		</nav>
 	</div>
 </header>
