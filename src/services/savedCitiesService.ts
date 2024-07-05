@@ -18,7 +18,6 @@ export const saveCity = async (cityName: string): Promise<void> => {
 	const savedCities = getSavedCities();
 	if (!savedCities.some((city) => city.name === cityName)) {
 		try {
-			window.scrollTo({ top: 0 });
 			const weather = await getForecastByCityName(cityName);
 			const newCity: SavedCity = {
 				name: weather.name,
