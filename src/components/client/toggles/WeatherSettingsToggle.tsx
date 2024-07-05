@@ -56,18 +56,14 @@ export function WeatherSettingsToggle() {
 					<LinearGradient className="rounded-md" />
 					<div className="py-1 rounded-md z-20">
 						{weatherOptions.map((option) => (
-							<div className="flex items-center space-x-2">
+							<div className="flex items-center space-x-2" key={option.id}>
 								<Switch
 									id="airplane-mode"
 									checked={Boolean(settings[option.id])}
 									onCheckedChange={() => toggleSetting(option.id)}
 									className="my-1 mx-1"
 								/>
-								<Label
-									htmlFor="airplane-mode"
-									key={option.id}
-									className="font-light"
-								>
+								<Label htmlFor="airplane-mode" className="font-light">
 									{option.title}
 								</Label>
 							</div>
