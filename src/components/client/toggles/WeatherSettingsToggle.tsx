@@ -1,6 +1,8 @@
 import { Settings } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { WEATHER_OPTIONS as weatherOptions } from "../../../config";
+import useClickOutside from "../../../hooks/useClickOutside";
+import useEscapeKey from "../../../hooks/useEscapeKey";
 import LinearGradient from "../magic/LinearGradient";
 import { Label } from "../text/Label";
 import { Switch } from "./Switch";
@@ -24,6 +26,10 @@ export function WeatherSettingsToggle() {
 			{} as WeatherSettings
 		)
 	);
+	const containerRef = useRef<HTMLDivElement>(null);
+
+	useClickOutside(containerRef, () => setIsOpen(!isOpen));
+	useEscapeKey(() => setIsOpen(!isOpen));
 
 	useEffect(() => {
 		const savedSettings = localStorage.getItem("weatherSettings");
@@ -44,7 +50,7 @@ export function WeatherSettingsToggle() {
 	};
 
 	return (
-		<div className="relative">
+		<div className="relative" ref={containerRef}>
 			<button
 				onClick={() => setIsOpen(!isOpen)}
 				className="inline-flex items-center rounded-md bg-blue-300 dark:bg-black p-1 ring-1 ring-inset ring-black dark:ring-blue-400"
