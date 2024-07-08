@@ -1,5 +1,3 @@
-// services/savedCitiesService.ts
-
 import { getForecastByCityName } from "./weatherService";
 
 const MAX_SAVED_CITIES = 10;
