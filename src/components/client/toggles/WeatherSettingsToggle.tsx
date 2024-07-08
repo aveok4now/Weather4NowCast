@@ -28,8 +28,12 @@ export function WeatherSettingsToggle() {
 	);
 	const containerRef = useRef<HTMLDivElement>(null);
 
-	useClickOutside(containerRef, () => setIsOpen(!isOpen));
-	useEscapeKey(() => setIsOpen(!isOpen));
+	useClickOutside(containerRef, () => {
+		if (isOpen) setIsOpen(false);
+	});
+	useEscapeKey(() => {
+		if (isOpen) setIsOpen(false);
+	});
 
 	useEffect(() => {
 		const savedSettings = localStorage.getItem("weatherSettings");
