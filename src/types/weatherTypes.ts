@@ -34,3 +34,10 @@ export interface CitySearchResponse {
 	country: string;
 	countryCode: string;
 }
+
+export interface CityInfo {
+	name: string;
+	localName: string;
+	country: string;
+	countryCode: string;
+}
