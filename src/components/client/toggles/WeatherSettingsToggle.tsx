@@ -27,7 +27,6 @@ export function WeatherSettingsToggle() {
 		)
 	);
 	const containerRef = useRef<HTMLDivElement>(null);
-
 	useClickOutside(containerRef, () => {
 		if (isOpen) setIsOpen(false);
 	});
