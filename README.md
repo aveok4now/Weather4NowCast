@@ -1,7 +1,5 @@
 # Weather4Nowcast ⛅
 
-[Live Demo](https://weather4nowcast-cdg.vercel.app/)
-
 ## Project Description
 
 Weather4Nowcast is a meteorological web application that provides weather forecasts for various cities. Users can search for cities and view their weather forecasts either through a search function or a scrolling marquee that displays forecasts for multiple cities. The application includes settings where users can enable or disable specific weather settings and supports both light and dark themes. It is responsive and works on mobile devices, and cities are saved locally for convenience.
